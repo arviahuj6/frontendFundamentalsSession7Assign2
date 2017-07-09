@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+
+<!-- Start of HTML -->
+<html>
+
+<!-- Start of Head -->
+<head>
+
+<!-- Start of Title -->
+<title>  Helper Note by creating a form </title>
+
+<!-- Start of CSS Styling -->
+<style>
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+    border-right:1px solid #bbb;
+}
+
+li:last-child {
+    border-right: none;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: #111;
+}
+
+.active {
+    background-color: #4CAF50;
+}
+#desc {
+    width: 1300px;
+    height: 300px;
+    overflow: scroll;
+}
+p {
+	font-size:25px;
+	font-family:"Palatino Linotype", "Book Antiqua", Palatino, serif;
+	font-style:italic;
+	color:rgb(148, 101, 44);	
+	word-spacing:8px;
+	letter-spacing: 1px;
+	text-align:justify;
+	padding:0 10px 0 10px;
+}
+h1 {
+	font-family:"MS Serif", "New York", serif;
+	font-style:italic;
+	color:#f4363d;	
+}
+h2 {
+	font-family:"MS Serif", "New York", serif;
+	font-style:italic;
+	color:#fff;	
+}
+
+#main-wrapper{
+	background-image:url(background.jpg);
+}
+
+
+</style>
+<!-- End of CSS Styling -->
+
+</head>
+<!-- End Head -->
+
+<!-- Start Body -->
+<body>
+<div id="main-wrapper">
+
+	<!-- Start Header -->
+		<header style="padding:10px; border:1px solid !important;">        
+        <!-- Start Navbar -->
+        <div>         
+            <nav>  
+            	<ul>            
+                  <li><a href="#">LOGO</a></li>
+                  <li><a href="#">Home </a></li>
+                  <li><a href="#">About us </a></li>
+                  <li><a href="#">Services</a></li>
+                  <li><a href="#">Team</a></li>
+                  <li><a href="#">Gallery</a></li>
+                  <li><a href="#">Contact Us</a></li>
+              	</ul>
+            </nav>
+        </div> 
+        <!--End Navbar -->           
+            
+		</header>
+        <!-- End Header -->
+        <br>
+        
+        <!-- Page Heading -->
+        <div>
+        <h1 style="text-align:center"><u>Helper Note by creating a form</u></h1>
+		</div>
+        
+        <p id="help">Helper Notes:</p>
+        <p>Name: 	<input type="text" id="name" name="name"></p>        
+        <p>E-mail: 	<input type="text" id="email" name="email"></p>        
+        <p>Age: 	<input type="text" id="age" name="age"></p>
+        <p><button class="btn">Submit</button></p>
+        
+        <!-- Javascript Start -->
+	<script>
+		function showHelp(help) {
+		  document.getElementById('help').innerHTML = help;
+		}
+		
+		function makeHelpCallback(help) {
+		  return function() {
+			showHelp(help);
+		  };
+		}
+		
+		function setupHelp() {
+		  var helpText = [
+		  {'id': 'name', 
+		  'help': 'Your full name'
+		 },
+		  {'id': 'email', 
+		  'help': 'Your E-mail Address'
+		 },		  
+		  {'id': 'age', 
+		  'help': 'Your age (You should be above 16yrs of age)'
+		  }
+		];
+	
+	  for (var i = 0; i < helpText.length; i++) {
+		var item = helpText[i];
+		document.getElementById(item.id).onfocus =
+		   makeHelpCallback(item.help);
+		  }
+		}
+
+		setupHelp();
+</script>
+		<!-- Javascript End -->
+</body>
+</html>
